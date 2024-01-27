@@ -8,7 +8,7 @@ export default factories.createCoreService('api::solution-page.solution-page', {
     find(): any {
         return strapi.db.query('api::solution-page.solution-page')
             .findOne({
-                populate: ['review', 'reviewer_image', 'reviewer_worked_in']
+                populate: ['review', 'review.reviewer_image', 'review.reviewer_worked_in']
             })
     }
 });
