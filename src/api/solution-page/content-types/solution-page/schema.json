@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "solution_pages",
+  "info": {
+    "singularName": "solution-page",
+    "pluralName": "solution-pages",
+    "displayName": "Solution Page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "suptitle": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "review": {
+      "displayName": "Review",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.review",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_ui_reviews",
+  "info": {
+    "displayName": "Review",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "review": {
+      "type": "text",
+      "required": true
+    },
+    "reviewer_name": {
+      "type": "string",
+      "required": true
+    },
+    "reviewer_pisition": {
+      "type": "string",
+      "required": true
+    },
+    "reviewer_worked_in": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "reviewer_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
