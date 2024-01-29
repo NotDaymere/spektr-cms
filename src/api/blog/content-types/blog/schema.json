@@ -37,6 +37,11 @@
       "repeatable": true,
       "component": "ui.social",
       "max": 2
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

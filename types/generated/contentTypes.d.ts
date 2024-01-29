@@ -804,6 +804,11 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         },
         number
       >;
+    category: Attribute.Relation<
+      'api::blog.blog',
+      'oneToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -841,6 +846,37 @@ export interface ApiCareerCareer extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.UID<'api::category.category', 'title'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -968,6 +1004,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
       'api::career.career': ApiCareerCareer;
+      'api::category.category': ApiCategoryCategory;
       'api::integration.integration': ApiIntegrationIntegration;
       'api::solution.solution': ApiSolutionSolution;
       'api::solution-page.solution-page': ApiSolutionPageSolutionPage;
